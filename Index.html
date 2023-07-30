@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Portfolio
+        </title>
+        <link rel="stylesheet" href="Style.css">
+    </head>
+    <body>
+        <div id="header">
+            <div class="container">
+                <nav>
+                    <img src="Image.png" class="logo" height="35" width="35">
+                    <ul>
+                        <li><a href="#header">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#contact">Contact</a></li>
+
+
+
+
+
+                    </ul>
+                </nav>
+                <div class="header-text">
+                    <img src="Pic1.jpeg" height="300" width="350" hspace="100" align="right">
+                    <p>MCA Student</p>
+                    <h1>Hi, I am <span>Ankita Laxmi</span><br>from India.</h1>
+                </div>
+            </div>
+        </div>
+       <! ---------------->
+        <div id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="about-col-1">
+                        <img src="">
+                    </div>
+                    <div class="about-col-2">
+                        <h1 class="sub-title"><br>About Me</h1>
+                        
+                        <P><br>I am currently pursuing MCA in Amity University Jharkhand. I am highly disciplined and hard working candidate and looking for the opportunity which encourages me to grow professionally and gives me the opportunity to learn new things. </P>
+                        <div class="tab-titles">
+                            <p class="tab-links active-link" onclick="opentab('skills')"><br>Skills</p>
+                            <p class="tab-links" onclick="opentab('education')"><br>Education</p>
+
+                        </div>
+                        <div class="tab-contents active-tab" id="skills">
+                            <ul>
+                                <li><span>HTML, CSS</span></li>
+                                <li><span>Javascript</span></li>
+                                <li><span>MySQL</span></li>
+                                <li><span>Java</span></li>
+                                <li><span>Python</span></li>
+                                <li><span>Data Structures</span></li>
+                            </ul>
+                        </div>
+                        <div class="tab-contents" id="education">
+                            <ul>
+                                <li><span>2022 - 2024</span><br>MCA from Amity University Jharkhand.</li>
+                                <li><span>2019 - 2022</span><br>BCA from Amity University Jharkhand.</li>
+                                <li><span>2018 - 2019</span><br>Intermediate from DAV.</li>
+                                <li><span>2016 - 2017</span><br>Metric from DAV.</li>
+
+
+                            </ul>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="portfolio">
+            <div class="container">
+                <h1 class="sub-title">My Work</h1>
+                <div class="work-list">
+                    <div class="work">
+                        <img src="Travel.png">
+                        <div class="layer">
+                            <h3>Tour and Travel Website</h3>
+                            <p> </p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="Brick.png">
+                        <div class="layer">
+                            <h3>Brick Breaker Game</h3>
+                            <p></p>
+                        </div>
+                    </div>
+                    <div class="work">
+                        <img src="Temp.png">
+                        <div class="layer">
+                            <h3>Temperature Converter</h3>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="contact">
+            <div class="container">
+                <div class="row">
+                    <div class="contact-left">
+                        
+                        <h1 class="sub-title">Contact Me</h1>
+                        <p><i class="fas fa-paper-plane"></i>Email: ankitalaxmi26@gmail.com</p>
+                        <p><i class="fas fa-phone-square-alt"></i>Phone: 9693051006</p>
+                        <div class="social-icons">
+                            <a href=""><i class="fab fa-instagram"></i></a>
+                            <a href=""><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    
+                        <a href="Ankita Laxmi.pdf" download class="btn btn2">Download CV</a>
+
+                    </div>
+                    <div class="contact-right">
+                        <form name="submit-to-google-sheet">
+                            <input type="text" name="Name" placeholder="Your Name" required>
+                            <input type="email" name="Email" placeholder="Your Email" required>
+                            <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
+                            <button type="submit" class="btn btn2">Submit</button>
+
+                        </form>
+                        <span id="msg"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        </div>
+
+        <script>
+            var tablinks = document.getElementsByClassName("tab-links");
+            var tabcontents = document.getElementsByClassName("tab-contents");
+            function opentab(tabname){
+                for(tablink of tablinks){
+                    tablink.classList.remove("active-link");
+
+                }
+                for(tabcontent of tabcontents){
+                    tabcontent.classList.remove("active-tab");
+                    
+                }
+                event.currentTarget.classList.add("active-link");
+                document.getElementById(tabname).classList.add("active-tab")
+            }
+
+        </script>
+        <script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyPh1jSltjt9fAOfr7MGtAiHvjHxttb3qeIgAQt3wFG1VRxdZFNmE69ctqn4mBTMEU/exec'
+ 
+  const form = document.forms['submit-to-google-sheet']
+
+  const msg = document.getElementById("msg")
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => alert{
+        "Message sent successfully" })
+        
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+
+
+    </body>
+</html>
